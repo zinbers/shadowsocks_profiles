@@ -12,4 +12,6 @@ mac 上shadowssocks 导入配置多的时候比较麻烦,就写个脚本批量�
 
 4) sh add.sh
 
+5) 重启一下shadowsocks
+
 enjoy it!
