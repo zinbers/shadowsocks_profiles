@@ -1,0 +1,12 @@
+{
+  "current": 1,
+  "profiles": [
+    {
+      "password": "fuckGFW",
+      "method": "aes-256-cfb",
+      "server_port": 8989,
+      "remarks": "getcarina免费服务器",
+      "server": "172.99.77.78"
+    }
+  ]
+}
