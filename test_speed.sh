@@ -1,5 +1,9 @@
 #!/bin/bash
-server_list=(`cat ss_cfg.json| grep \"server\" | cut -d ":" -f 2`)
+server_file="ss_cfg.json"
+if [ $1 ]; then
+    server_file=$1
+fi
+server_list=(`cat $server_file| grep \"server\" | cut -d ":" -f 2`)
 min_time=5000
 min_server=""
 total_server=${#server_list[@]}
@@ -30,6 +34,8 @@ do
             min_time=$sum_time
             min_server=$serv
         fi
+    else
+        echo "server:$serv avg_time:timeout"
     fi
 done
 echo "fin min_server:$min_server min_time:$min_time"
