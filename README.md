@@ -14,4 +14,10 @@ mac 上shadowssocks 导入配置多的时候比较麻烦,就写个脚本批量�
 
 5) 重启一下shadowsocks
 
+
+#新加了ping速度测试脚本 test_speed.sh
+>uaage
+sh test_speed.sh [/path/to/shadowsocks/config] 
+默认使用当前目录下的ss_cfg.json
+
 enjoy it!
