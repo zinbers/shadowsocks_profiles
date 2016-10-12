@@ -16,7 +16,7 @@ mac 上shadowssocks 导入配置多的时候比较麻烦,就写个脚本批量�
 
 
 #新加了ping速度测试脚本 test_speed.sh
->uaage
+>usage
 
 >sh test_speed.sh [/path/to/shadowsocks/config] 
 
