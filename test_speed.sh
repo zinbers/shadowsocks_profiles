@@ -27,7 +27,7 @@ do
     done
     flag=`echo "$sum_time > 0" | bc`
     if [ $flag -gt 0 ]; then
-        sum_time=`echo "$sum_time/$counter"|bc`
+        sum_time=`echo "scale=3;$sum_time/$counter"|bc`
         echo "server:$serv avg_time:$sum_time"
         flag=`echo "$min_time > $sum_time" |bc`
         if [ $flag -gt 0 ]; then
