@@ -8,22 +8,23 @@ server_list=(`cat $server_file| grep \"server\" | cut -d ":" -f 2`)
 #min_server=""
 total_server=${#server_list[@]}
 ret_str=""
+counter=5
 for((i=1;i<=$total_server;i++))
 do
     echo "->process $i/$total_server"
     serv=`echo ${server_list[i-1]} | tr -d '"'`
-    ret=`ping -t 5 $serv`
+    ret=`ping -t $counter $serv`
     time=(`echo $ret | tr ' ' '\n' | grep "time"`)
     #echo "server:$serv"
     sum_time=0
     tmp_time=0
-    counter=0
     for t in ${time[@]}
     do
         tmp_time=`echo $t | cut -d "=" -f2`
         if [ $tmp_time != $t ]; then
             sum_time=`echo "$sum_time+$tmp_time" | bc`
-            let counter=counter+1
+        else
+            sum_time=`echo "$sum_time+1000" | bc`
         fi
     done
     flag=`echo "$sum_time > 0" | bc`
