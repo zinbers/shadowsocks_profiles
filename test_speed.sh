@@ -12,10 +12,10 @@ counter=5
 for((i=1;i<=$total_server;i++))
 do
     echo "->process $i/$total_server"
-    serv=`echo ${server_list[i-1]} | tr -d '"'`
+    serv=`echo ${server_list[i-1]} | tr -d "[\",]"`
     ret=`ping -t $counter $serv`
     time=(`echo $ret | tr ' ' '\n' | grep "time"`)
-    #echo "server:$serv"
+    #echo "server:$serv, time ${time[*]}"
     sum_time=0
     tmp_time=0
     for t in ${time[@]}
