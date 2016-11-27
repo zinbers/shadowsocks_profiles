@@ -3,7 +3,7 @@ server_file="ss_cfg.json"
 if [ $1 ]; then
     server_file=$1
 fi
-server_list=(`cat $server_file| grep \"server\" | cut -d ":" -f 2`)
+server_list=(`cat $server_file| grep \"server\" | cut -d ":" -f 2 | cut -d "," -f1`)
 #min_time=5000
 #min_server=""
 total_server=${#server_list[@]}
@@ -12,10 +12,10 @@ counter=5
 for((i=1;i<=$total_server;i++))
 do
     echo "->process $i/$total_server"
-    serv=`echo ${server_list[i-1]} | tr -d "[\",]"`
+    serv=`echo ${server_list[i-1]} | tr -d "\""`
     ret=`ping -t $counter $serv`
     time=(`echo $ret | tr ' ' '\n' | grep "time"`)
-    #echo "server:$serv, time ${time[*]}"
+    # echo "server:$serv, time ${time[*]}"
     sum_time=0
     tmp_time=0
     for t in ${time[@]}
