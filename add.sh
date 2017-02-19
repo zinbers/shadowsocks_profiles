@@ -1,6 +1,6 @@
 #!/bin/bash
 function killShadowsocksX(){
-    ss_process=`ps aux | grep "ShadowsocksX" | grep -v "grep"`
+    ss_process=`ps aux | grep "ShadowsocksX$" | grep -v "grep"`
     if [ "$ss_process" ]; then
         pid=`echo "$ss_process" | awk '{print $2}'`
         if [ -z "$pid" ]; then
