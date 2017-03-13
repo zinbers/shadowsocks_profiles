@@ -1,4 +1,6 @@
 #!/bin/bash
+
+version=1.0.1
 function killShadowsocksX(){
     ss_process=`ps aux | grep "ShadowsocksX$" | grep -v "grep"`
     if [ "$ss_process" ]; then
